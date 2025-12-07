@@ -43,10 +43,7 @@ const SakuraReader = () => {
                 gap: '1rem',
                 alignItems: 'center'
             }}>
-                {/* Always show certificate on last chapter OR provide a button */}
-                <button onClick={() => generateCertificate("Sakura Story")} className="btn" style={{ fontSize: '1.1rem', padding: '1rem 2rem', background: '#ff7eb3', color: '#000' }}>
-                    Finish & Get Certificate 🏆
-                </button>
+                {/* Certificate button removed per request */}
 
                 <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', width: '100%', justifyContent: 'space-between' }}>
                     {prevChapterId ? (

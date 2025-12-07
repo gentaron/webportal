@@ -7,7 +7,7 @@ import { generateCertificate } from '../utils/certificate';
 const NeburaReader = () => {
     const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
     const [theme, setTheme] = useState('dark');
-    const [view, setView] = useState('novel'); // 'novel' or 'wiki'
+    const [view, setView] = useState('novel'); // 'novel', 'wiki', 'toc'
 
     const currentChapter = novelData[currentChapterIndex];
     const isLastChapter = currentChapterIndex === novelData.length - 1;
@@ -47,7 +47,6 @@ const NeburaReader = () => {
         <div className="app-container">
             <nav className="nebura-nav container">
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <Link to="/" style={{ marginRight: '1rem', textDecoration: 'none', color: 'var(--color-text)' }}>🏠</Link>
                     <h1 className="nebura-nav-title">NEBURA <span style={{ fontSize: '0.8em', opacity: 0.7 }}>Web Novel</span></h1>
                 </div>
                 <div className="nav-controls">
@@ -57,7 +56,10 @@ const NeburaReader = () => {
                 </div>
             </nav>
 
-            <div className="navigation-bar" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem' }}>
+            <div className="navigation-bar" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+                <Link to="/" className="btn outline" style={{ textDecoration: 'none', border: '1px solid var(--color-text)', color: 'var(--color-text)', background: 'transparent' }}>
+                    &larr; Back to Portal
+                </Link>
                 <button
                     className={`btn ${view === 'novel' ? '' : 'outline'}`}
                     style={{ background: view === 'novel' ? 'var(--color-accent)' : 'transparent', border: '1px solid var(--color-accent)', color: view === 'novel' ? '#fff' : 'var(--color-text)' }}
@@ -72,10 +74,46 @@ const NeburaReader = () => {
                 >
                     📚 Wiki / Data
                 </button>
+                <button
+                    className={`btn ${view === 'toc' ? '' : 'outline'}`}
+                    style={{ background: view === 'toc' ? 'var(--color-accent)' : 'transparent', border: '1px solid var(--color-accent)', color: view === 'toc' ? '#fff' : 'var(--color-text)' }}
+                    onClick={() => setView('toc')}
+                >
+                    📑 Chapters
+                </button>
             </div>
 
             {view === 'wiki' ? (
                 <NeburaWiki />
+            ) : view === 'toc' ? (
+                <div className="container fade-in" style={{ maxWidth: '800px' }}>
+                    <h2 style={{ textAlign: 'center', color: 'var(--color-accent)', marginBottom: '2rem' }}>Table of Contents</h2>
+                    <div style={{ display: 'grid', gap: '1rem' }}>
+                        {novelData.map((chapter, index) => (
+                            <button
+                                key={chapter.id}
+                                onClick={() => {
+                                    setCurrentChapterIndex(index);
+                                    setView('novel');
+                                    window.scrollTo(0, 0);
+                                }}
+                                className="chapter-card"
+                                style={{
+                                    textAlign: 'left',
+                                    padding: '1.5rem',
+                                    border: '1px solid rgba(255,255,255,0.1)',
+                                    cursor: 'pointer',
+                                    background: index === currentChapterIndex ? 'rgba(187, 134, 252, 0.1)' : 'transparent',
+                                    color: 'var(--color-text)',
+                                    fontSize: '1.1rem'
+                                }}
+                            >
+                                <span style={{ color: 'var(--color-accent)', marginRight: '1rem', fontWeight: 'bold' }}>#{index + 1}</span>
+                                {chapter.title}
+                            </button>
+                        ))}
+                    </div>
+                </div>
             ) : (
                 <main className="reader-container container fade-in">
                     <div className="chapter-card">
