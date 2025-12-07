@@ -1,0 +1,111 @@
+:root {
+  --font-body: 'Noto Serif JP', 'Merriweather', serif;
+  --font-ui: 'Inter', sans-serif;
+  --color-bg: #1a1a1a;
+  --color-text: #e0e0e0;
+  --color-accent: #ff7eb3; /* Default pink */
+  --color-surface: #2a2a2a;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-surface); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* Common Utilities */
+.container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+.btn {
+  background: var(--color-accent);
+  color: #1a1a1a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  font-family: var(--font-ui);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,126,179,0.3); }
+
+/* --- NEBURA THEMES --- */
+.nebura-theme .theme-light {
+    --color-bg: #ffffff;
+    --color-text: #121212;
+    --color-accent: #6200ee;
+    --color-surface: #f5f5f5;
+}
+.nebura-theme .theme-sepia {
+    --color-bg: #f4ecd8;
+    --color-text: #5b4636;
+    --color-accent: #8b5cf6;
+    --color-surface: #e8dfc8;
+}
+.nebura-theme .theme-dark {
+    --color-bg: #121212;
+    --color-text: #bdbdbd;
+    --color-accent: #bb86fc;
+    --color-surface: #1e1e1e;
+}
+
+/* NEBURA Specifics adapted to global vars */
+.nebura-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 2rem;
+}
+.nebura-nav-title { font-family: var(--font-ui); font-size: 1.5rem; font-weight: bold; }
+
+.chapter-card {
+    background: var(--color-surface);
+    padding: 3rem; border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.chapter-title {
+    text-align: center; color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 1rem; margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* Wiki Styles */
+.wiki-tabs { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+.wiki-tab {
+    background: transparent; border: 1px solid var(--color-accent); color: var(--color-text);
+    padding: 0.5rem 1rem; cursor: pointer; border-radius: 20px; transition: all 0.3s;
+}
+.wiki-tab.active, .wiki-tab:hover { background: var(--color-accent); color: var(--color-bg); }
+
+.wiki-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+.wiki-item {
+    background: var(--color-surface); padding: 1.5rem; border-radius: 8px;
+    border: 1px solid transparent; transition: 0.3s;
+}
+.wiki-item:hover { transform: translateY(-3px); border-color: var(--color-accent); }
+.wiki-item h3 { color: var(--color-accent); margin-top: 0; }
+
+.ranking-table {
+    width: 100%; border-collapse: collapse; background: var(--color-surface);
+    margin-bottom: 2rem; border-radius: 8px; overflow: hidden;
+}
+.ranking-table th { background: rgba(128,128,128,0.1); color: var(--color-accent); padding: 1rem; text-align: left; }
+.ranking-table td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.5s ease-out; }
