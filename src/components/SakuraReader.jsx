@@ -7,7 +7,7 @@ const SakuraReader = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const chapterId = parseInt(id);
-    const chapter = chapters.find(c => c.id === chapterId);
+    const chapter = chapters.find(c => parseInt(c.id) === chapterId);
 
     useEffect(() => {
         window.scrollTo(0, 0);
