@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Star } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
+import sakuraGif from '../assets/sakura.gif';
 
 const PortalHome = () => {
     return (
@@ -30,8 +31,8 @@ const PortalHome = () => {
                         onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
                         onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
                     >
-                        <div style={{ background: 'rgba(255, 126, 179, 0.1)', padding: '1.5rem', borderRadius: '50%', marginBottom: '1.5rem' }}>
-                            <Star size={48} color="#ff7eb3" />
+                        <div style={{ marginBottom: '1.5rem', width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', borderRadius: '50%', background: 'rgba(255, 126, 179, 0.1)' }}>
+                            <img src={sakuraGif} alt="Sakura" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                         <h2 style={{ fontSize: '2rem', marginBottom: '0.5rem', color: '#ff7eb3' }}>Sakura Story</h2>
                         <p style={{ color: '#888', marginBottom: '2rem' }}>A modern tale of beauty and digital dreams.</p>
