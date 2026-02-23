@@ -8,7 +8,24 @@ const SakuraList = () => {
             <Link to="/" style={{ display: 'inline-block', marginBottom: '2rem', textDecoration: 'none', color: '#888' }}>&larr; Back to Portal</Link>
             <header style={{ textAlign: 'center', marginBottom: '3rem' }}>
                 <h1 style={{ fontSize: '3rem', color: '#ff7eb3', marginBottom: '0.5rem' }}>Sakura Story</h1>
-                <p style={{ color: '#888' }}>A Modern Web Novel Experience</p>
+                <p style={{ color: '#888', marginBottom: '1.2rem' }}>A Modern Web Novel Experience</p>
+                <Link
+                    to="/sakura/wiki"
+                    style={{
+                        display: 'inline-block',
+                        padding: '0.5rem 1.4rem',
+                        border: '1px solid #ff7eb3',
+                        borderRadius: '999px',
+                        color: '#ff7eb3',
+                        textDecoration: 'none',
+                        fontSize: '0.9rem',
+                        transition: 'background 0.2s'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = '#ff7eb322'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                >
+                    百科事典 Wiki &rarr;
+                </Link>
             </header>
 
             <div style={{ display: 'grid', gap: '1rem' }}>
