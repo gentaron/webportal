@@ -14,3 +14,15 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+<!-- ecosystem:begin (自動生成: gentaron/infocollect の ecosystem/registry.json から。手で直さない) -->
+
+## つながり
+
+gentaron のリポジトリ群のうち **道具** の一つ。React + Vite のポータル試作。
+
+- **同じ島**: [pk3](https://github.com/gentaron/pk3)、[recordlog](https://github.com/gentaron/recordlog)、[Bubble](https://github.com/gentaron/Bubble)、[veile-bot](https://github.com/gentaron/veile-bot)
+
+全体の地図 → [ecosystem](https://github.com/gentaron/infocollect/blob/HEAD/ecosystem/README.md)
+
+<!-- ecosystem:end -->
